@@ -1,0 +1,98 @@
+{
+  "i18n": true,
+  "type": "panel",
+  "items": {
+    "mode": {
+      "type": "select",
+      "label": "Operating mode",
+      "sm": 6,
+      "options": [
+        {"label": "Master (client)", "value": "master"},
+        {"label": "Outstation (server)", "value": "outstation"}
+      ]
+    },
+    "host": {
+      "type": "text",
+      "label": "Outstation host",
+      "sm": 6,
+      "hidden": "data.mode !== 'master'"
+    },
+    "bind": {
+      "type": "text",
+      "label": "Listen address",
+      "sm": 6,
+      "hidden": "data.mode !== 'outstation'"
+    },
+    "port": {
+      "type": "number",
+      "label": "TCP port",
+      "min": 1,
+      "max": 65535,
+      "sm": 6
+    },
+    "localAddress": {
+      "type": "number",
+      "label": "Local DNP3 link address",
+      "min": 0,
+      "max": 65519,
+      "sm": 6
+    },
+    "remoteAddress": {
+      "type": "number",
+      "label": "Remote DNP3 link address",
+      "min": 0,
+      "max": 65519,
+      "sm": 6
+    },
+    "pollIntervalMs": {
+      "type": "number",
+      "label": "Integrity poll interval (ms)",
+      "min": 1000,
+      "max": 3600000,
+      "sm": 6,
+      "hidden": "data.mode !== 'master'"
+    },
+    "reconnectIntervalMs": {
+      "type": "number",
+      "label": "Reconnect interval (ms)",
+      "min": 1000,
+      "max": 3600000,
+      "sm": 6,
+      "hidden": "data.mode !== 'master'"
+    },
+    "responseTimeoutMs": {
+      "type": "number",
+      "label": "Connection timeout (ms)",
+      "min": 500,
+      "max": 60000,
+      "sm": 6,
+      "hidden": "data.mode !== 'master'"
+    },
+    "points": {
+      "type": "table",
+      "label": "DNP3 data points",
+      "items": [
+        {"type": "text", "attr": "name", "title": "Name", "width": "25%"},
+        {
+          "type": "select",
+          "attr": "type",
+          "title": "Type",
+          "width": "25%",
+          "options": [
+            {"label": "Binary input", "value": "binaryInput"},
+            {"label": "Double-bit binary input", "value": "doubleBitBinaryInput"},
+            {"label": "Binary output status", "value": "binaryOutputStatus"},
+            {"label": "Counter", "value": "counter"},
+            {"label": "Frozen counter", "value": "frozenCounter"},
+            {"label": "Analog input", "value": "analogInput"},
+            {"label": "Analog output status", "value": "analogOutputStatus"}
+          ]
+        },
+        {"type": "number", "attr": "index", "title": "Index", "min": 0, "max": 65535, "width": "15%"},
+        {"type": "number", "attr": "class", "title": "Class", "min": 0, "max": 3, "width": "10%"},
+        {"type": "text", "attr": "unit", "title": "Unit", "width": "10%"},
+        {"type": "text", "attr": "initialValue", "title": "Initial value", "width": "15%"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "common": {
+    "name": "dnp3",
+    "version": "0.0.1",
+    "news": {
+      "0.0.1": {
+        "en": "Initial release with DNP3 master and outstation modes",
+        "de": "Erste Version mit DNP3-Master- und Outstation-Modus",
+        "ru": "Первый выпуск с режимами DNP3 master и outstation",
+        "pt": "Versão inicial com modos mestre e outstation DNP3",
+        "nl": "Eerste versie met DNP3-master- en outstationmodi",
+        "fr": "Version initiale avec les modes maître et outstation DNP3",
+        "it": "Versione iniziale con modalità master e outstation DNP3",
+        "es": "Versión inicial con modos maestro y outstation DNP3",
+        "pl": "Pierwsza wersja z trybami master i outstation DNP3",
+        "uk": "Перший випуск із режимами DNP3 master та outstation",
+        "zh-cn": "首个版本，支持 DNP3 主站和从站模式"
+      }
+    },
+    "titleLang": {
+      "en": "DNP3",
+      "de": "DNP3",
+      "ru": "DNP3",
+      "pt": "DNP3",
+      "nl": "DNP3",
+      "fr": "DNP3",
+      "it": "DNP3",
+      "es": "DNP3",
+      "pl": "DNP3",
+      "uk": "DNP3",
+      "zh-cn": "DNP3"
+    },
+    "desc": {
+      "en": "Connect ioBroker as a DNP3 master or outstation over TCP.",
+      "de": "Verbindet ioBroker als DNP3-Master oder Outstation über TCP.",
+      "ru": "Подключает ioBroker как DNP3 master или outstation через TCP.",
+      "pt": "Conecta o ioBroker como mestre ou outstation DNP3 via TCP.",
+      "nl": "Verbindt ioBroker als DNP3-master of outstation via TCP.",
+      "fr": "Connecte ioBroker comme maître ou outstation DNP3 via TCP.",
+      "it": "Collega ioBroker come master o outstation DNP3 tramite TCP.",
+      "es": "Conecta ioBroker como maestro u outstation DNP3 mediante TCP.",
+      "pl": "Łączy ioBroker jako master lub outstation DNP3 przez TCP.",
+      "uk": "Підключає ioBroker як DNP3 master або outstation через TCP.",
+      "zh-cn": "通过 TCP 将 ioBroker 连接为 DNP3 主站或从站。"
+    },
+    "authors": ["TheBam1990"],
+    "keywords": ["dnp3", "ieee-1815", "scada", "telecontrol", "outstation"],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "dnp3.svg",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/TheBam1990/ioBroker.dnp3/main/admin/dnp3.svg",
+    "readme": "https://github.com/TheBam1990/ioBroker.dnp3/blob/main/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "protocols",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "push",
+    "adminUI": {"config": "json"},
+    "dependencies": [{"js-controller": ">=6.0.0"}],
+    "globalDependencies": [{"admin": ">=7.0.0"}]
+  },
+  "native": {
+    "mode": "master",
+    "host": "127.0.0.1",
+    "port": 20000,
+    "bind": "0.0.0.0",
+    "localAddress": 1,
+    "remoteAddress": 1024,
+    "pollIntervalMs": 10000,
+    "reconnectIntervalMs": 10000,
+    "responseTimeoutMs": 5000,
+    "points": []
+  },
+  "objects": [],
+  "instanceObjects": [
+    {"_id": "info.connection", "type": "state", "common": {"name": "Connection", "type": "boolean", "role": "indicator.connected", "read": true, "write": false, "def": false}, "native": {}},
+    {"_id": "info.lastError", "type": "state", "common": {"name": "Last error", "type": "string", "role": "text", "read": true, "write": false, "def": ""}, "native": {}},
+    {"_id": "info.lastUpdate", "type": "state", "common": {"name": "Last update", "type": "string", "role": "date", "read": true, "write": false, "def": ""}, "native": {}}
+  ]
+}
