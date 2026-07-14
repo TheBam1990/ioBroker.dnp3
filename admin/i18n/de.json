@@ -1,0 +1,10 @@
+{
+  "Operating mode": "Betriebsart", "Master (client)": "Master (Client)", "Outstation (server)": "Outstation (Server)",
+  "Outstation host": "Outstation-Host", "Listen address": "Lauschadresse", "TCP port": "TCP-Port",
+  "Local DNP3 link address": "Lokale DNP3-Link-Adresse", "Remote DNP3 link address": "Entfernte DNP3-Link-Adresse",
+  "Integrity poll interval (ms)": "Intervall der Integritätsabfrage (ms)", "Reconnect interval (ms)": "Wiederverbindungsintervall (ms)",
+  "Connection timeout (ms)": "Verbindungszeitüberschreitung (ms)", "DNP3 data points": "DNP3-Datenpunkte", "Name": "Name", "Type": "Typ",
+  "Binary input": "Binäreingang", "Double-bit binary input": "Doppelbit-Eingang", "Binary output status": "Binärausgangsstatus",
+  "Counter": "Zähler", "Frozen counter": "Eingefrorener Zähler", "Analog input": "Analogeingang", "Analog output status": "Analogausgangsstatus",
+  "Index": "Index", "Class": "Klasse", "Unit": "Einheit", "Initial value": "Anfangswert"
+}

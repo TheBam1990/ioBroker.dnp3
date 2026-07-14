@@ -1,0 +1,10 @@
+{
+  "Operating mode": "Режим работы", "Master (client)": "Master (клиент)", "Outstation (server)": "Outstation (сервер)",
+  "Outstation host": "Хост outstation", "Listen address": "Адрес прослушивания", "TCP port": "Порт TCP",
+  "Local DNP3 link address": "Локальный адрес канала DNP3", "Remote DNP3 link address": "Удалённый адрес канала DNP3",
+  "Integrity poll interval (ms)": "Интервал опроса целостности (мс)", "Reconnect interval (ms)": "Интервал переподключения (мс)",
+  "Connection timeout (ms)": "Тайм-аут соединения (мс)", "DNP3 data points": "Точки DNP3", "Name": "Имя", "Type": "Тип",
+  "Binary input": "Дискретный вход", "Double-bit binary input": "Двухбитный дискретный вход", "Binary output status": "Состояние дискретного выхода",
+  "Counter": "Счётчик", "Frozen counter": "Замороженный счётчик", "Analog input": "Аналоговый вход", "Analog output status": "Состояние аналогового выхода",
+  "Index": "Индекс", "Class": "Класс", "Unit": "Единица", "Initial value": "Начальное значение"
+}

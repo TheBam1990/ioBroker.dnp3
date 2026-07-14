@@ -27,3 +27,7 @@ The first release uses DNP3 over plain TCP. TLS and Secure Authentication are no
 ### 0.0.1 (2026-07-14)
 
 - Initial DNP3 master and outstation implementation.
+
+## License
+
+MIT License, copyright 2026 TheBam1990.

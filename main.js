@@ -92,15 +92,15 @@ class Dnp3Adapter extends utils.Adapter {
             this.log.info(`Connected to DNP3 outstation ${this.settings.host}:${this.settings.port}`);
             await this.setStateAsync('info.connection', true, true);
             master.integrityPoll();
-            this.pollTimer = setInterval(() => master.integrityPoll(), this.settings.pollIntervalMs);
+            this.pollTimer = this.setInterval(() => master.integrityPoll(), this.settings.pollIntervalMs);
         });
         master.on('frame', frame => this.handleMasterFrame(frame));
         master.on('error', error => this.reportError(error));
         master.on('close', async () => {
-            clearInterval(this.pollTimer);
+            this.clearInterval(this.pollTimer);
             await this.setStateAsync('info.connection', false, true);
             if (!this.reconnectTimer) {
-                this.reconnectTimer = setTimeout(() => {
+                this.reconnectTimer = this.setTimeout(() => {
                     this.reconnectTimer = null;
                     this.startMaster().catch(error => this.reportError(error));
                 }, this.settings.reconnectIntervalMs);
@@ -180,8 +180,8 @@ class Dnp3Adapter extends utils.Adapter {
     }
 
     onUnload(callback) {
-        clearInterval(this.pollTimer);
-        clearTimeout(this.reconnectTimer);
+        this.clearInterval(this.pollTimer);
+        this.clearTimeout(this.reconnectTimer);
         Promise.resolve(this.protocol?.close()).finally(callback);
     }
 }

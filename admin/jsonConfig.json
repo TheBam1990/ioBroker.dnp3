@@ -5,7 +5,7 @@
     "mode": {
       "type": "select",
       "label": "Operating mode",
-      "sm": 6,
+      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4,
       "options": [
         {"label": "Master (client)", "value": "master"},
         {"label": "Outstation (server)", "value": "outstation"}
@@ -14,13 +14,13 @@
     "host": {
       "type": "text",
       "label": "Outstation host",
-      "sm": 6,
+      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4,
       "hidden": "data.mode !== 'master'"
     },
     "bind": {
       "type": "text",
       "label": "Listen address",
-      "sm": 6,
+      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4,
       "hidden": "data.mode !== 'outstation'"
     },
     "port": {
@@ -28,28 +28,28 @@
       "label": "TCP port",
       "min": 1,
       "max": 65535,
-      "sm": 6
+      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4
     },
     "localAddress": {
       "type": "number",
       "label": "Local DNP3 link address",
       "min": 0,
       "max": 65519,
-      "sm": 6
+      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4
     },
     "remoteAddress": {
       "type": "number",
       "label": "Remote DNP3 link address",
       "min": 0,
       "max": 65519,
-      "sm": 6
+      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4
     },
     "pollIntervalMs": {
       "type": "number",
       "label": "Integrity poll interval (ms)",
       "min": 1000,
       "max": 3600000,
-      "sm": 6,
+      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4,
       "hidden": "data.mode !== 'master'"
     },
     "reconnectIntervalMs": {
@@ -57,7 +57,7 @@
       "label": "Reconnect interval (ms)",
       "min": 1000,
       "max": 3600000,
-      "sm": 6,
+      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4,
       "hidden": "data.mode !== 'master'"
     },
     "responseTimeoutMs": {
@@ -65,7 +65,7 @@
       "label": "Connection timeout (ms)",
       "min": 500,
       "max": 60000,
-      "sm": 6,
+      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4,
       "hidden": "data.mode !== 'master'"
     },
     "points": {

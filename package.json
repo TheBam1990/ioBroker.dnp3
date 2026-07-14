@@ -7,14 +7,16 @@
   "license": "MIT",
   "main": "main.js",
   "files": ["admin", "lib", "io-package.json", "LICENSE", "main.js", "README.md"],
-  "engines": {"node": ">=20"},
-  "keywords": ["iobroker", "dnp3", "ieee-1815", "scada", "telecontrol", "outstation"],
+  "engines": {"node": ">=22"},
+  "keywords": ["ioBroker", "dnp3", "ieee-1815", "scada", "telecontrol", "outstation"],
   "repository": {"type": "git", "url": "git+https://github.com/TheBam1990/ioBroker.dnp3.git"},
   "bugs": {"url": "https://github.com/TheBam1990/ioBroker.dnp3/issues"},
   "dependencies": {"@iobroker/adapter-core": "^3.4.2"},
   "devDependencies": {
     "@iobroker/adapter-dev": "^1.5.0",
-    "@iobroker/eslint-config": "^2.3.4"
+    "@iobroker/eslint-config": "^2.3.4",
+    "@iobroker/testing": "^5.2.2",
+    "@types/node": "^22.20.1"
   },
   "scripts": {
     "start": "node main.js",

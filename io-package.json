@@ -45,9 +45,8 @@
     },
     "authors": ["TheBam1990"],
     "keywords": ["dnp3", "ieee-1815", "scada", "telecontrol", "outstation"],
-    "license": "MIT",
+    "licenseInformation": {"type": "free", "license": "MIT"},
     "platform": "Javascript/Node.js",
-    "main": "main.js",
     "icon": "dnp3.svg",
     "enabled": true,
     "extIcon": "https://raw.githubusercontent.com/TheBam1990/ioBroker.dnp3/main/admin/dnp3.svg",
@@ -55,12 +54,13 @@
     "loglevel": "info",
     "mode": "daemon",
     "type": "protocols",
+    "tier": 2,
     "compact": true,
     "connectionType": "local",
     "dataSource": "push",
     "adminUI": {"config": "json"},
-    "dependencies": [{"js-controller": ">=6.0.0"}],
-    "globalDependencies": [{"admin": ">=7.0.0"}]
+    "dependencies": [{"js-controller": ">=6.0.11"}],
+    "globalDependencies": [{"admin": ">=7.6.20"}]
   },
   "native": {
     "mode": "master",

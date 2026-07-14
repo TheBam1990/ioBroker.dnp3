@@ -1,0 +1,10 @@
+{
+  "Operating mode": "Bedrijfsmodus", "Master (client)": "Master (client)", "Outstation (server)": "Outstation (server)",
+  "Outstation host": "Outstation-host", "Listen address": "Luisteradres", "TCP port": "TCP-poort",
+  "Local DNP3 link address": "Lokaal DNP3-linkadres", "Remote DNP3 link address": "Extern DNP3-linkadres",
+  "Integrity poll interval (ms)": "Interval integriteitsopvraag (ms)", "Reconnect interval (ms)": "Herbindingsinterval (ms)",
+  "Connection timeout (ms)": "Verbindingstime-out (ms)", "DNP3 data points": "DNP3-datapunten", "Name": "Naam", "Type": "Type",
+  "Binary input": "Binaire ingang", "Double-bit binary input": "Dubbelbits binaire ingang", "Binary output status": "Status binaire uitgang",
+  "Counter": "Teller", "Frozen counter": "Bevroren teller", "Analog input": "Analoge ingang", "Analog output status": "Status analoge uitgang",
+  "Index": "Index", "Class": "Klasse", "Unit": "Eenheid", "Initial value": "Beginwaarde"
+}
