@@ -24,6 +24,10 @@ The first release uses DNP3 over plain TCP. TLS and Secure Authentication are no
 
 ## Changelog
 
+### 0.0.3 (2026-07-14)
+
+- Publish tested builds as GitHub releases while npm publishing is not configured.
+
 ### 0.0.2 (2026-07-14)
 
 - Persist automatically discovered DNP3 points in the Admin configuration table so their names and metadata can be edited.
@@ -32,6 +36,8 @@ The first release uses DNP3 over plain TCP. TLS and Secure Authentication are no
 ### 0.0.1 (2026-07-14)
 
 - Initial DNP3 master and outstation implementation.
+
+Older release notes are available in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
 
 ## License
 

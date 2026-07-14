@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "dnp3",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "news": {
+      "0.0.3": {
+        "en": "Publish tested builds as GitHub releases without requiring npm credentials",
+        "de": "Veröffentlicht getestete Builds als GitHub-Releases ohne erforderliche npm-Zugangsdaten",
+        "ru": "Публикует проверенные сборки как релизы GitHub без учётных данных npm",
+        "pt": "Publica compilações testadas como versões do GitHub sem exigir credenciais npm",
+        "nl": "Publiceert geteste builds als GitHub-releases zonder npm-inloggegevens",
+        "fr": "Publie les versions testées comme releases GitHub sans identifiants npm",
+        "it": "Pubblica le build testate come release GitHub senza credenziali npm",
+        "es": "Publica compilaciones probadas como versiones de GitHub sin credenciales npm",
+        "pl": "Publikuje przetestowane kompilacje jako wydania GitHub bez danych logowania npm",
+        "uk": "Публікує протестовані збірки як випуски GitHub без облікових даних npm",
+        "zh-cn": "无需 npm 凭据即可将测试通过的构建发布为 GitHub 版本"
+      },
       "0.0.2": {
         "en": "Persist automatically discovered points in the admin table and allow faster polling",
         "de": "Speichert automatisch gefundene Punkte in der Admin-Tabelle und ermöglicht schnellere Abfragen",
