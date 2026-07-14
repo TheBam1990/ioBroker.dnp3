@@ -45,7 +45,9 @@ class Dnp3Adapter extends utils.Adapter {
     this.settings = this.normalizeConfig();
     await this.setStateAsync('info.connection', false, true);
     await this.setStateAsync('info.lastError', '', true);
-    for (const point of this.settings.points) await this.registerPoint(point);
+    for (const point of this.settings.points) {
+      await this.registerPoint(point);
+    }
     await this.subscribeStatesAsync('points.*');
     if (this.settings.mode === 'master') {
       await this.startMaster();
