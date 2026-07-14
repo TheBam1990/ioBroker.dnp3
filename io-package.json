@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "dnp3",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "news": {
+      "0.0.2": {
+        "en": "Persist automatically discovered points in the admin table and allow faster polling",
+        "de": "Speichert automatisch gefundene Punkte in der Admin-Tabelle und ermöglicht schnellere Abfragen",
+        "ru": "Сохраняет автоматически найденные точки в таблице администратора и ускоряет опрос",
+        "pt": "Guarda pontos descobertos automaticamente na tabela de administração e permite consultas mais rápidas",
+        "nl": "Slaat automatisch gevonden punten op in de beheertabel en maakt sneller opvragen mogelijk",
+        "fr": "Enregistre les points découverts automatiquement dans la table d’administration et permet une interrogation plus rapide",
+        "it": "Salva i punti rilevati automaticamente nella tabella di amministrazione e consente interrogazioni più rapide",
+        "es": "Guarda los puntos detectados automáticamente en la tabla de administración y permite consultas más rápidas",
+        "pl": "Zapisuje automatycznie wykryte punkty w tabeli administracyjnej i umożliwia szybsze odpytywanie",
+        "uk": "Зберігає автоматично виявлені точки в таблиці адміністратора та забезпечує швидше опитування",
+        "zh-cn": "将自动发现的数据点保存到管理表，并支持更快的轮询"
+      },
       "0.0.1": {
         "en": "Initial release with DNP3 master and outstation modes",
         "de": "Erste Version mit DNP3-Master- und Outstation-Modus",
@@ -69,7 +82,7 @@
     "bind": "0.0.0.0",
     "localAddress": 1,
     "remoteAddress": 1024,
-    "pollIntervalMs": 10000,
+    "pollIntervalMs": 1000,
     "reconnectIntervalMs": 10000,
     "responseTimeoutMs": 5000,
     "points": []

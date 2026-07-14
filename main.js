@@ -19,6 +19,9 @@ class Dnp3Adapter extends utils.Adapter {
     this.protocol = null;
     this.pollTimer = null;
     this.reconnectTimer = null;
+    this.discoveredConfigTimer = null;
+    this.configUpdatePromise = Promise.resolve();
+    this.discoveredPointsToPersist = new Map();
     this.points = new Map();
     this.on('ready', () => this.onReady());
     this.on('stateChange', (id, state) => this.onStateChange(id, state));
@@ -34,7 +37,7 @@ class Dnp3Adapter extends utils.Adapter {
       port: number(this.config.port, 20000, 1, 65535),
       localAddress: number(this.config.localAddress, 1, 0, 65519),
       remoteAddress: number(this.config.remoteAddress, 1024, 0, 65519),
-      pollIntervalMs: number(this.config.pollIntervalMs, 10000, 1000, 3600000),
+      pollIntervalMs: number(this.config.pollIntervalMs, 1000, 250, 3600000),
       reconnectIntervalMs: number(this.config.reconnectIntervalMs, 10000, 1000, 3600000),
       responseTimeoutMs: number(this.config.responseTimeoutMs, 5000, 500, 60000),
       points: Array.isArray(this.config.points) ? this.config.points : [],
@@ -135,6 +138,7 @@ class Dnp3Adapter extends utils.Adapter {
         const key = `${point.type}:${point.index}`;
         if (!this.points.has(key)) {
           await this.registerPoint(point);
+          this.scheduleDiscoveredPointConfigUpdate(point);
         }
         this.points.set(key, { ...this.points.get(key), ...point });
         await this.setStateAsync(this.pointId(point.type, point.index), point.value, true);
@@ -173,6 +177,56 @@ class Dnp3Adapter extends utils.Adapter {
     this.log.info(`DNP3 outstation listening on ${this.settings.bind}:${this.settings.port}`);
   }
 
+  scheduleDiscoveredPointConfigUpdate(point) {
+    const key = `${point.type}:${point.index}`;
+    this.discoveredPointsToPersist.set(key, { ...point });
+    this.clearTimeout(this.discoveredConfigTimer);
+    this.discoveredConfigTimer = this.setTimeout(() => {
+      this.discoveredConfigTimer = null;
+      this.persistDiscoveredPointsToConfig().catch((error) => {
+        this.log.warn(`Cannot persist discovered DNP3 data points: ${error.message}`);
+      });
+    }, 2000);
+  }
+
+  async persistDiscoveredPointsToConfig() {
+    if (!this.discoveredPointsToPersist.size) {
+      return;
+    }
+    const pending = [...this.discoveredPointsToPersist.values()];
+    this.discoveredPointsToPersist.clear();
+    const update = async () => {
+      const instanceId = `system.adapter.${this.namespace}`;
+      const object = await this.getForeignObjectAsync(instanceId);
+      if (!object?.native) {
+        return;
+      }
+      const configuredPoints = Array.isArray(object.native.points) ? object.native.points : [];
+      const known = new Set(configuredPoints.map((point) => `${point?.type}:${Number(point?.index)}`));
+      const additions = pending.filter((point) => !known.has(`${point.type}:${Number(point.index)}`));
+      if (!additions.length) {
+        return;
+      }
+      object.native.points = [
+        ...configuredPoints,
+        ...additions.map((point) => ({
+          name: `${point.type} ${point.index}`,
+          type: point.type,
+          index: Number(point.index),
+          class: Number(point.class) || 0,
+          unit: point.unit || '',
+          initialValue: point.value,
+        })),
+      ];
+      await this.setForeignObjectAsync(instanceId, object);
+      this.config.points = object.native.points;
+      this.settings.points = object.native.points;
+      this.log.info(`Added ${additions.length} discovered DNP3 data point(s) to adapter settings`);
+    };
+    this.configUpdatePromise = this.configUpdatePromise.then(update, update);
+    await this.configUpdatePromise;
+  }
+
   async onStateChange(id, state) {
     if (!state || state.ack || !id.startsWith(`${this.namespace}.points.`)) {
       return;
@@ -203,6 +257,7 @@ class Dnp3Adapter extends utils.Adapter {
   onUnload(callback) {
     this.clearInterval(this.pollTimer);
     this.clearTimeout(this.reconnectTimer);
+    this.clearTimeout(this.discoveredConfigTimer);
     Promise.resolve(this.protocol?.close()).finally(callback);
   }
 }

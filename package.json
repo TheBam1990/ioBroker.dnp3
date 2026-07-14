@@ -1,6 +1,6 @@
 {
   "name": "iobroker.dnp3",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "DNP3 master and outstation adapter for ioBroker",
   "author": "TheBam1990",
   "homepage": "https://github.com/TheBam1990/ioBroker.dnp3",

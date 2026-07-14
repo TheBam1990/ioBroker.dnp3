@@ -24,6 +24,11 @@ The first release uses DNP3 over plain TCP. TLS and Secure Authentication are no
 
 ## Changelog
 
+### 0.0.2 (2026-07-14)
+
+- Persist automatically discovered DNP3 points in the Admin configuration table so their names and metadata can be edited.
+- Allow polling intervals down to 250 ms and use 1000 ms as the default for new instances.
+
 ### 0.0.1 (2026-07-14)
 
 - Initial DNP3 master and outstation implementation.

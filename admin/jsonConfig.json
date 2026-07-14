@@ -71,7 +71,7 @@
     "pollIntervalMs": {
       "type": "number",
       "label": "Integrity poll interval (ms)",
-      "min": 1000,
+      "min": 250,
       "max": 3600000,
       "xs": 12,
       "sm": 6,
