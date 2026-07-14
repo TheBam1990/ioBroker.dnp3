@@ -47,8 +47,11 @@ class Dnp3Adapter extends utils.Adapter {
     await this.setStateAsync('info.lastError', '', true);
     for (const point of this.settings.points) await this.registerPoint(point);
     await this.subscribeStatesAsync('points.*');
-    if (this.settings.mode === 'master') await this.startMaster();
-    else await this.startOutstation();
+    if (this.settings.mode === 'master') {
+      await this.startMaster();
+    } else {
+      await this.startOutstation();
+    }
   }
 
   pointId(type, index) {
@@ -77,7 +80,9 @@ class Dnp3Adapter extends utils.Adapter {
     const state = await this.getStateAsync(id);
     const value = state?.val ?? point.initialValue ?? (definition.type === 'boolean' ? false : 0);
     this.points.set(`${type}:${index}`, { ...point, type, index, value });
-    if (!state) await this.setStateAsync(id, value, true);
+    if (!state) {
+      await this.setStateAsync(id, value, true);
+    }
   }
 
   async startMaster() {
@@ -122,9 +127,13 @@ class Dnp3Adapter extends utils.Adapter {
         this.protocol.confirm(message.control & 0x0f, message.functionCode === 0x82);
       }
       for (const point of message.points) {
-        if (!TYPE_ROLES[point.type]) continue;
+        if (!TYPE_ROLES[point.type]) {
+          continue;
+        }
         const key = `${point.type}:${point.index}`;
-        if (!this.points.has(key)) await this.registerPoint(point);
+        if (!this.points.has(key)) {
+          await this.registerPoint(point);
+        }
         this.points.set(key, { ...this.points.get(key), ...point });
         await this.setStateAsync(this.pointId(point.type, point.index), point.value, true);
       }
@@ -151,7 +160,9 @@ class Dnp3Adapter extends utils.Adapter {
     outstation.on('clientError', (error) => this.reportError(error));
     outstation.on('control', async (point) => {
       const key = `${point.type}:${point.index}`;
-      if (!this.points.has(key)) await this.registerPoint(point);
+      if (!this.points.has(key)) {
+        await this.registerPoint(point);
+      }
       this.points.set(key, { ...this.points.get(key), ...point });
       await this.setStateAsync(this.pointId(point.type, point.index), point.value, true);
       await this.setStateAsync('info.lastUpdate', new Date().toISOString(), true);
@@ -161,17 +172,23 @@ class Dnp3Adapter extends utils.Adapter {
   }
 
   async onStateChange(id, state) {
-    if (!state || state.ack || !id.startsWith(`${this.namespace}.points.`)) return;
+    if (!state || state.ack || !id.startsWith(`${this.namespace}.points.`)) {
+      return;
+    }
     const relative = id.slice(this.namespace.length + 1).split('.');
     const type = relative[1];
     const index = Number(relative[2]);
     const key = `${type}:${index}`;
     const point = this.points.get(key);
-    if (!point) return;
+    if (!point) {
+      return;
+    }
     point.value = TYPE_ROLES[type].type === 'boolean' ? Boolean(state.val) : Number(state.val);
-    if (this.settings.mode === 'outstation') this.protocol.setPoint(point);
-    else if (type === 'binaryOutputStatus' || type === 'analogOutputStatus')
+    if (this.settings.mode === 'outstation') {
+      this.protocol.setPoint(point);
+    } else if (type === 'binaryOutputStatus' || type === 'analogOutputStatus') {
       this.protocol.directOperate(type, index, point.value);
+    }
     await this.setStateAsync(id, point.value, true);
   }
 
