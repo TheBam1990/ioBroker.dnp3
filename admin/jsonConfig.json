@@ -5,22 +5,34 @@
     "mode": {
       "type": "select",
       "label": "Operating mode",
-      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4,
+      "xs": 12,
+      "sm": 6,
+      "md": 6,
+      "lg": 4,
+      "xl": 4,
       "options": [
-        {"label": "Master (client)", "value": "master"},
-        {"label": "Outstation (server)", "value": "outstation"}
+        { "label": "Master (client)", "value": "master" },
+        { "label": "Outstation (server)", "value": "outstation" }
       ]
     },
     "host": {
       "type": "text",
       "label": "Outstation host",
-      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4,
+      "xs": 12,
+      "sm": 6,
+      "md": 6,
+      "lg": 4,
+      "xl": 4,
       "hidden": "data.mode !== 'master'"
     },
     "bind": {
       "type": "text",
       "label": "Listen address",
-      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4,
+      "xs": 12,
+      "sm": 6,
+      "md": 6,
+      "lg": 4,
+      "xl": 4,
       "hidden": "data.mode !== 'outstation'"
     },
     "port": {
@@ -28,28 +40,44 @@
       "label": "TCP port",
       "min": 1,
       "max": 65535,
-      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4
+      "xs": 12,
+      "sm": 6,
+      "md": 6,
+      "lg": 4,
+      "xl": 4
     },
     "localAddress": {
       "type": "number",
       "label": "Local DNP3 link address",
       "min": 0,
       "max": 65519,
-      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4
+      "xs": 12,
+      "sm": 6,
+      "md": 6,
+      "lg": 4,
+      "xl": 4
     },
     "remoteAddress": {
       "type": "number",
       "label": "Remote DNP3 link address",
       "min": 0,
       "max": 65519,
-      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4
+      "xs": 12,
+      "sm": 6,
+      "md": 6,
+      "lg": 4,
+      "xl": 4
     },
     "pollIntervalMs": {
       "type": "number",
       "label": "Integrity poll interval (ms)",
       "min": 1000,
       "max": 3600000,
-      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4,
+      "xs": 12,
+      "sm": 6,
+      "md": 6,
+      "lg": 4,
+      "xl": 4,
       "hidden": "data.mode !== 'master'"
     },
     "reconnectIntervalMs": {
@@ -57,7 +85,11 @@
       "label": "Reconnect interval (ms)",
       "min": 1000,
       "max": 3600000,
-      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4,
+      "xs": 12,
+      "sm": 6,
+      "md": 6,
+      "lg": 4,
+      "xl": 4,
       "hidden": "data.mode !== 'master'"
     },
     "responseTimeoutMs": {
@@ -65,33 +97,37 @@
       "label": "Connection timeout (ms)",
       "min": 500,
       "max": 60000,
-      "xs": 12, "sm": 6, "md": 6, "lg": 4, "xl": 4,
+      "xs": 12,
+      "sm": 6,
+      "md": 6,
+      "lg": 4,
+      "xl": 4,
       "hidden": "data.mode !== 'master'"
     },
     "points": {
       "type": "table",
       "label": "DNP3 data points",
       "items": [
-        {"type": "text", "attr": "name", "title": "Name", "width": "25%"},
+        { "type": "text", "attr": "name", "title": "Name", "width": "25%" },
         {
           "type": "select",
           "attr": "type",
           "title": "Type",
           "width": "25%",
           "options": [
-            {"label": "Binary input", "value": "binaryInput"},
-            {"label": "Double-bit binary input", "value": "doubleBitBinaryInput"},
-            {"label": "Binary output status", "value": "binaryOutputStatus"},
-            {"label": "Counter", "value": "counter"},
-            {"label": "Frozen counter", "value": "frozenCounter"},
-            {"label": "Analog input", "value": "analogInput"},
-            {"label": "Analog output status", "value": "analogOutputStatus"}
+            { "label": "Binary input", "value": "binaryInput" },
+            { "label": "Double-bit binary input", "value": "doubleBitBinaryInput" },
+            { "label": "Binary output status", "value": "binaryOutputStatus" },
+            { "label": "Counter", "value": "counter" },
+            { "label": "Frozen counter", "value": "frozenCounter" },
+            { "label": "Analog input", "value": "analogInput" },
+            { "label": "Analog output status", "value": "analogOutputStatus" }
           ]
         },
-        {"type": "number", "attr": "index", "title": "Index", "min": 0, "max": 65535, "width": "15%"},
-        {"type": "number", "attr": "class", "title": "Class", "min": 0, "max": 3, "width": "10%"},
-        {"type": "text", "attr": "unit", "title": "Unit", "width": "10%"},
-        {"type": "text", "attr": "initialValue", "title": "Initial value", "width": "15%"}
+        { "type": "number", "attr": "index", "title": "Index", "min": 0, "max": 65535, "width": "15%" },
+        { "type": "number", "attr": "class", "title": "Class", "min": 0, "max": 3, "width": "10%" },
+        { "type": "text", "attr": "unit", "title": "Unit", "width": "10%" },
+        { "type": "text", "attr": "initialValue", "title": "Initial value", "width": "15%" }
       ]
     }
   }

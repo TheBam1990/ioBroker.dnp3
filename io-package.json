@@ -45,7 +45,7 @@
     },
     "authors": ["TheBam1990"],
     "keywords": ["dnp3", "ieee-1815", "scada", "telecontrol", "outstation"],
-    "licenseInformation": {"type": "free", "license": "MIT"},
+    "licenseInformation": { "type": "free", "license": "MIT" },
     "platform": "Javascript/Node.js",
     "icon": "dnp3.svg",
     "enabled": true,
@@ -58,9 +58,9 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "push",
-    "adminUI": {"config": "json"},
-    "dependencies": [{"js-controller": ">=6.0.11"}],
-    "globalDependencies": [{"admin": ">=7.6.20"}]
+    "adminUI": { "config": "json" },
+    "dependencies": [{ "js-controller": ">=6.0.11" }],
+    "globalDependencies": [{ "admin": ">=7.6.20" }]
   },
   "native": {
     "mode": "master",
@@ -76,8 +76,30 @@
   },
   "objects": [],
   "instanceObjects": [
-    {"_id": "info.connection", "type": "state", "common": {"name": "Connection", "type": "boolean", "role": "indicator.connected", "read": true, "write": false, "def": false}, "native": {}},
-    {"_id": "info.lastError", "type": "state", "common": {"name": "Last error", "type": "string", "role": "text", "read": true, "write": false, "def": ""}, "native": {}},
-    {"_id": "info.lastUpdate", "type": "state", "common": {"name": "Last update", "type": "string", "role": "date", "read": true, "write": false, "def": ""}, "native": {}}
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "name": "Connection",
+        "type": "boolean",
+        "role": "indicator.connected",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.lastError",
+      "type": "state",
+      "common": { "name": "Last error", "type": "string", "role": "text", "read": true, "write": false, "def": "" },
+      "native": {}
+    },
+    {
+      "_id": "info.lastUpdate",
+      "type": "state",
+      "common": { "name": "Last update", "type": "string", "role": "date", "read": true, "write": false, "def": "" },
+      "native": {}
+    }
   ]
 }
