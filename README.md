@@ -30,4 +30,6 @@ The first release uses DNP3 over plain TCP. TLS and Secure Authentication are no
 
 ## License
 
-MIT License, copyright 2026 TheBam1990.
+Copyright (c) 2026 TheBam1990
+
+MIT License.

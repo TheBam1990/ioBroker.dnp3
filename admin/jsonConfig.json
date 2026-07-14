@@ -107,6 +107,11 @@
     "points": {
       "type": "table",
       "label": "DNP3 data points",
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12,
       "items": [
         { "type": "text", "attr": "name", "title": "Name", "width": "25%" },
         {
