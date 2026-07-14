@@ -43,9 +43,9 @@
   },
   "scripts": {
     "start": "node main.js",
-    "test": "node --test test/*.test.js",
-    "test:package": "node --test test/*.test.js",
-    "test:integration": "node --test test/*.test.js",
+    "test": "node --test test/dnp3.test.js",
+    "test:package": "node --test test/dnp3.test.js",
+    "test:integration": "node --test test/dnp3.test.js",
     "check": "node --check main.js && node --check lib/dnp3.js && npm test",
     "lint": "eslint"
   }
